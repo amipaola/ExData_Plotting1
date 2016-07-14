@@ -1,9 +1,9 @@
 library(png)
 # read the data from 1/2/2007 to 2/2/2007
-begin <- grep("^31/1/2007",readLines("household_power_consumption.txt"))
-end <- grep("^2/2/2007",readLines("household_power_consumption.txt"))
+begin <- grep("^31/1/2007",readLines("../household_power_consumption.txt"))
+end <- grep("^2/2/2007",readLines("../household_power_consumption.txt"))
 lg <- end[length(end)] - begin[length(begin)]
-data <- read.table('household_power_consumption.txt', sep=";",skip=begin[length(begin)], nrow=lg)
+data <- read.table('../household_power_consumption.txt', sep=";",skip=begin[length(begin)], nrow=lg)
 
 #Put the names of the columns
 colnames(data) <- c('Date', 'Time', 'Global_active_power', 'Global_reactive_power',
