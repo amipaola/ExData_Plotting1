@@ -16,6 +16,8 @@ data <- cbind(data,DateTime)
 data$DateTime <- strptime(data$DateTime,"%e/%m/%Y %H:%M:%S", tz="UTC")
 #to look for ? in table ==> grep("\\?", data[0,1])
 
+#open png file
+png(filename = "plot2.png",width=480,height = 480, bg="transparent")
 #create the scatterplot without the points and axis
 plot(data$DateTime,data$Global_active_power,
      ylab="Global Active Power (kilowatts)",xaxt="n", yaxt="n",xlab="", type="n")
@@ -26,5 +28,4 @@ axis(side=2, at=c(0,2,4,6),labels = c("0","2","4","6"))
 axis.POSIXct(side=1, at=c("2007-02-01 00:00:00 UTC","2007-02-02 00:00:00 UTC","2007-02-02 23:59:00 UTC"),
              labels = c("Thu","Fri","Sat"))
 #copy the graph to a png file
-dev.copy(png,"plot2.png", width=480,height = 480, bg="transparent")
 dev.off()
